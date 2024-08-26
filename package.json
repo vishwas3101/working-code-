@@ -1,0 +1,15 @@
+{
+  "name": "home-page-20240818t110141z-001",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "firebase": "^10.13.0",
+    "firebase-auth": "^0.1.2"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+ <html> 
+  
+ <head> 
+   <title>Travel Website</title> 
+   <link href="loginStyle.css" rel="stylesheet" type="text/css" /> 
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script> 
+ </head> 
+  
+ <body> 
+     <form id="MainForm" class="w-25 m-4"> 
+         <h2 class="mb-3">Sign In User</h2> 
+         <div class="form-floating mb-3"> 
+         <input type="email" class="form-control" id="emailInp" placeholder="name@example.com"> 
+         <label for="floatingInput">Email Address</label> 
+       </div> 
+       <div class="form-floating mb-3"> 
+         <input type="password" class="form-control" id="passwordInp" placeholder="Password"> 
+         <label for="floatingPassword">Password</label> 
+       </div> 
+  
+       <button type="submit" class="btn btn-primary" style="float: right;">Log In</button> 
+       
+       <a href="register.html">
+        <button type="button" class="btn btn-primary me-2" style="float: right;">Sign Up</button></a> 
+  
+     </form> 
+  
+  
+     <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+        databaseURL:"https://edu-campus-95e45-default-rtdb.firebaseio.com/",
+        apiKey: "AIzaSyBWQYLWjmCvdchefJhzyiZb8e_grZ0dtlU",
+        authDomain: "edu-campus-95e45.firebaseapp.com",
+        projectId: "edu-campus-95e45",
+        storageBucket: "edu-campus-95e45.appspot.com",
+        messagingSenderId: "748922142537",
+        appId: "1:748922142537:web:35babbfd6064cc01d6e498",
+        measurementId: "G-87SMZJH01L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const analytics = getAnalytics(app);
+    const dbref = ref(db);
+
+    let EmailInp = document.getElementById('emailInp');
+    let PassInp =  document.getElementById('passwordInp');
+    let MainForm =  document.getElementById('MainForm');
+
+    let SignInUser = evt => {
+        evt.preventDefault();
+
+        signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value).then((credentials) => {
+            get(child(dbref, 'UsersAuthList/' + credentials.user.uid)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                        firstname: snapshot.val().firstname,
+                        lastname: snapshot.val().lastname
+                    }));
+                    sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
+                    window.location.href = 'index.html';
+                } else {
+                    alert('User data does not exist.');
+                }
+            }).catch((error) => {
+                console.log("Error fetching user data: ", error);
+            });
+        }).catch((error) => {
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+        });
+    }
+
+    MainForm.addEventListener('submit', SignInUser);
+</script>
+
+
+  
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script> 
+   <script src="script.js"></script> 
+  
+  
+  
+ </body> 
+ </html>
