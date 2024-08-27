@@ -32,7 +32,7 @@
                             <option value="all">Languages</option>
                             <option value="english">English</option>
                             <option value="hindi">Hindi</option>
-                            <option value="punjabi">Punjabi</option>
+                            <option id="punjabi-button" value="punjabi">Punjabi</option>
                             <option value="telugu">Telugu</option>
                             <option value="tamil">Tamil</option>
                             <option value="kannada">Kannada</option>
@@ -47,7 +47,7 @@
                             <option value="all">All Courses</option>
                             <option value="english">JAVA</option>
                             <option value="hindi">PYTHON</option>
-                            <option value="punjabi">HTML</option>
+                            <option class="punjabibutton" value="punjabi">HTML</option>
                             <option value="telugu">CSS</option>
                         </select>
                     </li>
@@ -407,6 +407,39 @@
                 }
                 } 
                 window.addEventListener('load', CheckCred); 
+
+
+                document.addEventListener('DOMContentLoaded', function () {
+    const languageFilter = document.getElementById('language-filter');
+
+    if (languageFilter) {
+        languageFilter.addEventListener('change', function () {
+            const selectedValue = languageFilter.value;
+
+            const urlMapping = {
+                'english': 'coursecss.html',
+                'hindi': 'hindicsscourses.html',
+                'punjabi': 'punjabicsscourses.html',
+                'telugu': 'telugu-page.html',
+                'tamil': 'tamil-page.html',
+                'kannada': 'kannada-page.html',
+                'bengali': 'bengali-page.html',
+                'marathi': 'marathi-page.html',
+                'malayalam': 'malayalam-page.html'
+            };
+
+            if (urlMapping[selectedValue]) {
+                window.location.href = urlMapping[selectedValue];
+            } else {
+                console.log('No page found for selected language:', selectedValue);
+            }
+        });
+    } else {
+        console.error('Language filter dropdown not found.');
+    }
+});
+</script>
+
     </script>
 
 <script type="module">
@@ -471,6 +504,8 @@
         console.error('Course title or price not found');
     }
 }
+
+
 
 </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

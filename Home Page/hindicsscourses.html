@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कोर्स विवरण - एजु कैम्पस</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="index.html">
+                    <h3>एजु कैम्पस</h3>
+                </a>
+            </div>
+            <div class="navbar-right">
+                <ul>
+                    <li>
+                        <form action="#" method="GET" class="search-form">
+                            <input type="text" name="search" placeholder="खोजें..." id="search-bar">
+                        </form>
+                    </li>
+                    <li>
+                        <select id="language-filter">
+                            <option value="all">भाषाएँ</option>
+                            <option value="english">अंग्रेजी</option>
+                            <option value="hindi">हिंदी</option>
+                            <option id="punjabi-button" value="punjabi">पंजाबी</option>
+                            <option value="telugu">तेलुगू</option>
+                            <option value="tamil">तमिल</option>
+                            <option value="kannada">कन्नड़</option>
+                            <option value="bengali">बंगाली</option>
+                            <option value="marathi">मराठी</option>
+                            <option value="malayalam">मलयालम</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select id="language-filter">
+                            <option value="all">सभी कोर्स</option>
+                            <option value="english">JAVA</option>
+                            <option value="hindi">PYTHON</option>
+                            <option class="punjabibutton" value="punjabi">HTML</option>
+                            <option value="telugu">CSS</option>
+                        </select>
+                    </li>
+                    <li><a href="">हमारे बारे में</a></li>
+                    <li class="navbar-cart"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li class="navbar-cart">
+                        <a href="#">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <p id="message"></p>
+                        <li>
+                            <p id="greet"></p>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="course-highlight">
+            <div class="course-info">
+                <h1 class="course-title">CSS (कैस्केडिंग स्टाइल शीट्स)</h1>
+                <p class="program-type">नैनोडिग्री प्रोग्राम</p>
+
+                <div class="rating">
+                    <span>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="rating-count">(729)</span>
+                </div>
+
+                <p class="description">
+                    यह प्रोग्राम छात्रों को CSS का उपयोग करके वेब पेज डिजाइन और स्टाइल करने के कौशल प्रदान करने के लिए
+                    लक्षित है, जो उत्तरदायी और दृश्य रूप से आकर्षक लेआउट बनाने पर केंद्रित है। स्नातक वेब
+                    विकास और यूजर इंटरफेस डिजाइन भूमिकाओं के लिए तैयार होंगे जिनमें उन्नत CSS विशेषज्ञता की आवश्यकता
+                    होती है।
+                </p>
+
+                <div class="buttons">
+                    <button class="enroll-bt"><b><span class="discounted-price">500 </span> 
+                        <span class="original-price"> 2000</span> </b></button>
+                    <button class="enroll-btn" onclick="addToCart()"><b>अब नामांकित करें </b></button>
+                    <button class="cartadd-to-" onclick="addToCart()"> <b>कार्ट में जोड़ें </b></button>
+                </div>
+
+                <p><b>कोर्स में शामिल -</b> </p>
+                <div class="course-meta">
+                    <span class="meta-item"><i class="icon-level"></i> इंटरमीडिएट</span>
+                    <span class="meta-item"><i class="icon-duration"></i> 40 घंटे</span>
+                    <span class="meta-item"><i class="icon-projects"></i> वास्तविक दुनिया की परियोजनाएँ</span>
+                    <span class="meta-item"><i class="icon-certificate"></i> कोर्स पूरा होने का प्रमाणपत्र</span>
+                    <span class="meta-item"><i class="icon-updated"></i> अंतिम अपडेट 30 जून 2024</span>
+                </div>
+
+                <div class="skills">
+                    <h3>आप जो कौशल सीखेंगे:</h3>
+                    <p>• उत्तरदायी लेआउट बनाएं • CSS ढांचे और पूर्व-प्रोसेसर को मास्टर करें • उन्नत स्टाइलिंग तकनीकों को लागू करें</p>
+                </div>
+            </div>
+            <div class="courseimage"><img class="courseimage1"
+                    src="https://delta-dev-software.fr/wp-content/uploads/2024/05/CSS-Logo.png" alt="जावास्क्रिप्ट">
+            </div>
+        </section>
+
+        <h3 class="course-content">कोर्स सामग्री</h3>
+
+        <div>
+            <div class="popup-content">
+                <h3>अध्याय 1: CSS का परिचय</h3>
+                <ul>
+                    <li>CSS क्या है?</li>
+                    <li>CSS महत्वपूर्ण क्यों है?</li>
+                    <li>CSS का विकास</li>
+                    <li>CSS सिंटैक्स और बुनियादी संरचना</li>
+                    <li>इनलाइन, आंतरिक, और बाहरी CSS</li>
+                </ul>
+                <button id="mybuttonid" data-content-id="mybox1id">अधिक पढ़ें</button>
+                <span class="mybox1" id="mybox1id" style="display: none;">
+                <h3>अध्याय 2: सेलेक्टर्स और प्रॉपर्टीज</h3>
+                <ul>
+                    <li>CSS सेलेक्टर्स (तत्व, क्लास, ID, विशेषता)</li>
+                    <li>स्पेसिफिसिटी और कैस्केड</li>
+                    <li>सामान्यतः उपयोग की जाने वाली प्रॉपर्टीज (टेक्स्ट, फॉन्ट, रंग, बैकग्राउंड, बॉर्डर, मार्जिन, पैडिंग, आदि)</li>
+                    <li>बॉक्स मॉडल और इसकी प्रॉपर्टीज</li>
+                </ul>
+                
+                <h3>अध्याय 3: लेआउट और पोजिशनिंग</h3>
+                <ul>
+                    <li>पोजिशनिंग प्रकार (स्टैटिक, रिलेटिव, एब्सोल्यूट, फिक्स्ड)</li>
+                    <li>डिस्प्ले प्रॉपर्टी और इसके मान (ब्लॉक, इनलाइन, इनलाइन-ब्लॉक, फ्लेक्स, ग्रिड)</li>
+                    <li>CSS ग्रिड लेआउट</li>
+                    <li>फ्लेक्सबॉक्स लेआउट</li>
+                    <li>उत्तरदायी डिज़ाइन सिद्धांत</li>
+                </ul>
+                
+                <h3>अध्याय 4: टाइपोग्राफी और फॉन्ट्स</h3>
+                <ul>
+                    <li>फॉन्ट प्रॉपर्टीज (आकार, वजन, स्टाइल, परिवार, आदि)</li>
+                    <li>वेब-सेफ फॉन्ट्स बनाम कस्टम फॉन्ट्स</li>
+                    <li>टेक्स्ट एलाइनमेंट और सजावट</li>
+                    <li>उत्तरदायी टाइपोग्राफी बनाना</li>
+                </ul>
+                
+                <h3>अध्याय 5: CSS प्री-प्रोसेसर्स</h3>
+                <ul>
+                    <li>प्री-प्रोसेसर्स का परिचय (जैसे, सास, लेस)</li>
+                    <li>वेरिएबल्स, मिक्सिन्स, नेस्टिंग, और इनहेरिटेंस</li>
+                    <li>प्री-प्रोसेसर्स को CSS में संकलित करना</li>
+                </ul>
+                
+                <h3>अध्याय 6: ट्रांजीशंस और एनिमेशन</h3>
+                <ul>
+                    <li>CSS ट्रांजीशंस का उपयोग</li>
+                    <li>CSS एनिमेशन और कीफ्रेम्स</li>
+                    <li>एनीमेशन टाइमिंग और इज़िंग</li>
+                </ul>
+                
+                <h3>अध्याय 7: अंतिम प्रोजेक्ट</h3>
+                <ul>
+                    <li>एक पूरी वेबसाइट डिजाइन करना</li>
+                    <li>सर्वश्रेष्ठ प्रथाओं का पालन करना</li>
+                    <li>रिव्यू और फीडबैक</li>
+                </ul>
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>एजु कैम्पस</h3>
+                <p>नवीनतम कोर्सेज और अपडेट के लिए हमारे न्यूज़लेटर की सदस्यता लें।</p>
+                <form action="#" method="post">
+                    <input type="email" placeholder="अपना ईमेल दर्ज करें">
+                    <button type="submit">सदस्यता लें</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">गोपनीयता नीति</a></li>
+                    <li><a href="#">सेवा की शर्तें</a></li>
+                    <li><a href="#">संपर्क करें</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        punjabiButton = document.getElementsByClassName('.punjabibutton');
+        const userInfo = JSON.parse(sessionStorage.getItem("user-info"));
+        const userCreds = JSON.parse(sessionStorage.getItem("user-creds")); 
+        MsgHead= document.getElementById('message'); 
+        GreetHead= document.getElementById('greet'); 
+        SignoutBtn= document.getElementById('signoutbutton');
+        let Signout=()=>{ 
+                sessionStorage.removeItem("user-creds"); 
+                sessionStorage.removeItem("user-info"); 
+                window.location.href="login.html"; 
+            } 
+
+            let CheckCred=()=>{ 
+                if(!sessionStorage.getItem("user-creds")) {
+                      window.location.href='index.html';
+                }
+
+                else{ 
+                  MsgHead.innerText=  `Welcome ${userInfo.firstname || "Guest"} ${userInfo.lastname || ""}!`; 
+                }
+                } 
+                window.addEventListener('load', CheckCred); 
+                document.addEventListener('DOMContentLoaded', function () {
+    const languageFilter = document.getElementById('language-filter');
+
+    if (languageFilter) {
+        languageFilter.addEventListener('change', function () {
+            const selectedValue = languageFilter.value;
+
+            const urlMapping = {
+                'english': 'coursecss.html',
+                'hindi': 'hindicsscourses.html',
+                'punjabi': 'punjabicsscourses.html',
+                'telugu': 'telugu-page.html',
+                'tamil': 'tamil-page.html',
+                'kannada': 'kannada-page.html',
+                'bengali': 'bengali-page.html',
+                'marathi': 'marathi-page.html',
+                'malayalam': 'malayalam-page.html'
+            };
+
+            if (urlMapping[selectedValue]) {
+                window.location.href = urlMapping[selectedValue];
+            } else {
+                console.log('No page found for selected language:', selectedValue);
+            }
+        });
+    } else {
+        console.error('Language filter dropdown not found.');
+    }
+});
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
