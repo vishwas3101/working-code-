@@ -1,29 +1,24 @@
+let popup = ""; 
 
-
-// Function to toggle the visibility of the additional content
-function toggleReadMore(buttonId, contentId) {
-    const button = document.getElementById(buttonId);
-    const content = document.getElementById(contentId);
-
-    if (content.style.display === 'none' || content.style.display === '') {
-        content.style.display = 'block';
-        button.textContent = 'Read Less';
+function addToCart(courseTitle, coursePrice) {
+    const cartItems = document.getElementById('cartItems');
+    if (cartItems) {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <h4>${courseTitle}</h4>
+            <p>${coursePrice}</p>
+        `;
+        cartItems.appendChild(cartItem);
     } else {
-        content.style.display = 'none';
-        button.textContent = 'Read More';
+        console.error("Cart element not found");
     }
 }
 
-// Attach event listeners to all "Read More" buttons
-const readMoreButtons = document.querySelectorAll('[data-content-id]');
-readMoreButtons.forEach(button => {
-    const contentId = button.getAttribute('data-content-id');
-    button.addEventListener('click', () => toggleReadMore(button.id, contentId));
-});
-
-    window.addEventListener('click', function(event) {
-        if (event.target == popup) {
-            popup.classList.add('hidden');
-        }
+document.querySelectorAll('.cartadd-to').forEach(button => {
+    button.addEventListener('click', function() {
+        addToCart('CSS (Cascading Style Sheets)', '&#8377;500');
+        window.location.href = 'cart.html'; 
     });
+});
 

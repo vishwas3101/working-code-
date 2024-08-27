@@ -3,48 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduTech - Cart</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cart - Edu Campus</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+        </nav>
+    </header>
 
-<header>
-    <div class="logo">
-        <h1>EduTech</h1>
-    </div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Courses</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Login</a>
-    </nav>
-</header>
-
-<div class="cart-container">
-    <div class="cart-item">
-        <img src="course-image.jpg" alt="Course Thumbnail">
-        <div class="cart-item-details">
-            <h2 class="cart-item-title">Course Title</h2>
-            <p class="cart-item-price">$49.99</p>
+    <main>
+        <h1>Your Cart</h1>
+        <div id="cart-details">
+            <h2 id="cart-title"></h2>
+            <p id="cart-price"></p>
         </div>
-        <button class="cart-item-remove">Remove</button>
-    </div>
-    <div class="cart-item">
-        <img src="course-image.jpg" alt="Course Thumbnail">
-        <div class="cart-item-details">
-            <h2 class="cart-item-title">Course Title</h2>
-            <p class="cart-item-price">$79.99</p>
-        </div>
-        <button class="cart-item-remove">Remove</button>
-    </div>
+    </main>
 
-    <div class="cart-total">
-        <p>Total: $129.98</p>
-    </div>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            const courseTitle = sessionStorage.getItem('courseTitle');
+            const coursePrice = sessionStorage.getItem('coursePrice');
 
-    <button class="checkout-btn">Proceed to Checkout</button>
-</div>
+            document.getElementById('cart-title').innerText = courseTitle;
+            document.getElementById('cart-price').innerText = coursePrice;
+        });
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+        databaseURL:"https://edu-campus-95e45-default-rtdb.firebaseio.com/",
+        apiKey: "AIzaSyBWQYLWjmCvdchefJhzyiZb8e_grZ0dtlU",
+        authDomain: "edu-campus-95e45.firebaseapp.com",
+        projectId: "edu-campus-95e45",
+        storageBucket: "edu-campus-95e45.appspot.com",
+        messagingSenderId: "748922142537",
+        appId: "1:748922142537:web:35babbfd6064cc01d6e498",
+        measurementId: "G-87SMZJH01L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const analytics = getAnalytics(app);
+    const dbref = ref(db);
+
+    let Cartsave = evt => { 
+        evt.preventDefault(); 
+
+    set(ref(db, 'Courses/' + user.uid), { 
+                courseTitle: courseTitle, 
+                price: coursePrice,
+              }).then(() => {
+                sessionStorage.setItem("user-info-cart", JSON.stringify({ 
+                Coursename: courseTitle, 
+                price: LnameInp.value 
+                  }));
+                  window.location.href = 'thankyou.html';
+              }).catch((error) => {
+                alert("Data could not be saved: " + error.message);
+              });
+              }
+             
+
+              let CheckCred=()=>{ 
+    if(!sessionStorage.getItem("user-creds")) {
+       window.location.href='login.html';
+      }
+
+    else{ 
+      MsgHead.innerText=  `Welcome ${userInfo.firstname || "Guest"} ${userInfo.lastname || ""}!`; 
+       }
+    } 
+  window.addEventListener('load', CheckCred); 
+  checkout-btn.addEventListener('click', Cartsave);
+
+</script>
 
 </body>
 </html>
